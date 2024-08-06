@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
-import { postLink } from './controllers/link';
+import { postLink ,getSlugRedirect} from './controllers/link.js';
 //connection of mongo DB
 
 const connectionMongoDB = async () =>{
@@ -29,6 +29,8 @@ connectionMongoDB();
 
 
  app.post("/link", postLink)
+
+ app.get("/:slug", getSlugRedirect)
 
 
  const PORT =process.env.PORT || 5000 ;
