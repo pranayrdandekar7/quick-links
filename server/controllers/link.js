@@ -37,11 +37,7 @@ const postLink = async(req,res)=>{
      await link.save();
 
     res.redirect(link.target)
-    // res.json({
-    //     success:true,
-    //     mesaage: "redirecting to the target",
-    //     data : slug
-    // })
+    
  }
 
  export {
