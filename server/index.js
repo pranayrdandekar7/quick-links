@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
-
+import { postLink } from './controllers/link';
 //connection of mongo DB
 
 const connectionMongoDB = async () =>{
@@ -19,6 +19,17 @@ const connectionMongoDB = async () =>{
     }
 }
 connectionMongoDB();
+
+ app.get("/health",(req,res)=>{
+    res.json({
+        success:true,
+        message: `all is good `
+    })
+ })
+
+
+ app.post("/link", postLink)
+
 
  const PORT =process.env.PORT || 5000 ;
 
