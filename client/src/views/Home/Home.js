@@ -33,14 +33,12 @@ function Home() {
         toast.error("response.data.message")
     }
 }
-
     return (
         <div>
-            <h1 className=''>"Simplify Your Links: Short, Sweet, and Shareable!"</h1>
+            <h1 className='header'>"Simplify Your Links: Short, Sweet, and Shareable!"</h1>
             
-
             <form className='link-form'>
-            <p className='form-heaidng'>shorten your links in a seconds</p>
+            <p className='form-heaidng'>Shorten your links in a seconds</p>
                 <input
                     type="text"
                     placeholder='Title'

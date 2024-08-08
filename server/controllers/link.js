@@ -1,3 +1,4 @@
+
 import Links from '../models/Links.js'
 
 const postLink = async(req,res)=>{
@@ -26,7 +27,7 @@ const postLink = async(req,res)=>{
     const link = await Links.findOne({slug:slug}) ;
     
     if (!link){
-        return res.json({
+        return res.status(404).json({
            success: false,
            message:"link not found",
            
@@ -40,7 +41,20 @@ const postLink = async(req,res)=>{
     
  }
 
+ 
+  const getLinks =async (req,res)=>{
+   
+   const allLinks = await Links.find()
+
+   res.json({
+      success:true,
+      data:allLinks,
+      message:`All links fetched successfully`
+   })
+
+  }
  export {
     postLink,
-    getSlugRedirect
+    getSlugRedirect,
+    getLinks 
  }
