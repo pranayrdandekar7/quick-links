@@ -41,7 +41,7 @@ const postLink = async(req,res)=>{
     
  }
 
- 
+
   const getLinks =async (req,res)=>{
    
    const allLinks = await Links.find()
@@ -53,6 +53,8 @@ const postLink = async(req,res)=>{
    })
 
   }
+
+  
  export {
     postLink,
     getSlugRedirect,

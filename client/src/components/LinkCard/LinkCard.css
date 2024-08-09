@@ -1,0 +1,13 @@
+.link-card{
+    background-color: white;
+    border-radius: 15px;
+    height: 80px;
+    width: 70%;
+    padding: 10px;
+    box-shadow: 0 0 10px 1px gray;
+    margin: 20px auto;
+    border: 1px solid  #7f5af0;
+}
+.link-title{
+    margin: 0;
+}
