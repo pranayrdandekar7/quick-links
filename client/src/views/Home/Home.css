@@ -37,7 +37,6 @@
 }
 .btn{
     background-color: #7f5af0;
-    
     width: 85%;
     padding: 8px ;
     font-size: 18px;
@@ -46,7 +45,7 @@
     display: block;
     margin: 10px auto;
     cursor: pointer;
-    border: 1px solid black;
+    font-weight: bold;
 }
 .btn:hover{
     background-color:  #7059b4;

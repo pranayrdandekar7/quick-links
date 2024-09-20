@@ -32,7 +32,7 @@ function MyLinks() {
           createdAt
         } = link
 
-        return <LinkCard
+        return  <LinkCard
           title={title}
           target={target}
           slug={slug}

@@ -10,6 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 import { postLink ,getSlugRedirect , getLinks} from './controllers/link.js';
+import { postSignup } from './controllers/user.js';
 
 
 
@@ -39,6 +40,10 @@ connectionMongoDB();
  app.get("/links", getLinks)
 
  app.get("/:slug", getSlugRedirect)
+
+ app.post("/signup",postSignup)
+
+ 
 
  
 
