@@ -29,5 +29,29 @@ const postSignup= async(req,res)=>
 
     }
 
+    const postLogin = async(req,res)=>{
 
-export {postSignup}
+        const {email,password} =req.body
+        console.log(email , password)
+    
+        const user = await User.findOne({
+           email:email,
+           password:password
+        });
+     
+        if(user){
+           res.status(200).json({
+              success:true,
+              message:`user login successfully`,
+              data:user
+           })
+        }
+        else{
+           res.json({
+              success:false,
+              message:`invalid credintial`,
+              data:null
+           })
+        }
+     }
+export {postSignup,postLogin}
