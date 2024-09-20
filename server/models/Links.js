@@ -1,6 +1,10 @@
 import {model,Schema} from 'mongoose';
 const linkSchema = new Schema ({
-
+    user : {
+        type : Schema.Types.ObjectId,
+        ref : 'User',
+        require : true
+    },
     target :{
         type : String,
         required:true

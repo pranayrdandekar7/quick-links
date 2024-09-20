@@ -1,16 +1,18 @@
 
 import Links from '../models/Links.js'
+import User from "./../models/User.js"
 
 const postLink = async(req,res)=>{
 
-    const {target,slug,title} = req.body ;
+    const {target,slug,title,user} = req.body ;
     const link = new Links({
 
       title,
       slug,
-      target
+      target,
+      user
     })
-
+try{
     const savedLink = await link.save()
 
     res.json({
@@ -19,6 +21,13 @@ const postLink = async(req,res)=>{
         message:'link created successfully'
     })
  }
+ catch(err){
+   res.json({
+      success:false,
+      message:err.message,
+      data:null
+   })
+ } };
 
  const getSlugRedirect = async (req,res)=>{
 
@@ -41,20 +50,25 @@ const postLink = async(req,res)=>{
     
  }
 
+  const getLinks = async (req, res) => {
+   try {
+     const { userId } = req.query;
+     const user = await User.findById(userId);
+     const links = await Links.find({ user : userId }).sort({ createdAt: -1 });
+ 
+     res.json({
+       message: "All links featched successfully",
+       success: true,
+       data: links,
+     });
+   } catch(e) {
+     res.json({
+       success: false,
+       message: e.message
+     });
+   }
+ };
 
-  const getLinks =async (req,res)=>{
-   
-   const allLinks = await Links.find()
-
-   res.json({
-      success:true,
-      data:allLinks,
-      message:`All links fetched successfully`
-   })
-
-  }
-
-  
  export {
     postLink,
     getSlugRedirect,
